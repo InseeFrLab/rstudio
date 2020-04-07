@@ -34,7 +34,7 @@ RUN \
     && cp /usr/share/zoneinfo/Europe/Paris /etc/localtime \
     && sed -i -e 's/# fr_FR.UTF-8 UTF-8/fr_FR.UTF-8 UTF-8/' /etc/locale.gen \
     && dpkg-reconfigure --frontend=noninteractive locales \
-    && update-locale LANG=fr_FR.UTF-8 \
+    && update-locale LANG=fr_FR.UTF-8
 
 RUN \
     
