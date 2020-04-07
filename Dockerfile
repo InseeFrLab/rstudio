@@ -40,7 +40,7 @@ RUN \
     
     R -e " \
         update.packages(ask ='no'); \
-        install.packages(c('RPostgreSQL', 'RSQLite', 'ROracle', 'odbc', 'keyring')); \
+        install.packages(c('RPostgreSQL', 'RSQLite', 'odbc', 'keyring')); \
         remotes::install_github('cloudyr/aws.s3@ee5b4a37027b21673f3d6af3a934e69ade5476d0') ; \
     " \
     
