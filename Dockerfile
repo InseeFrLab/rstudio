@@ -44,8 +44,7 @@ RUN \
         RSQLite \
         odbc \
         keyring \
-    && installGithub.r \
-        cloudyr/aws.s3@ee5b4a37027b21673f3d6af3a934e69ade5476d0
+        aws.s3
     
     
 VOLUME ["/home"]
