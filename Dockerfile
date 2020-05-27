@@ -44,7 +44,8 @@ RUN \
         RSQLite \
         odbc \
         keyring \
-        aws.s3
+        aws.s3 \
+	paws
     
     
 VOLUME ["/home"]
