@@ -27,6 +27,7 @@ RUN \
 	alien \
         libsodium-dev \
         libsecret-1-dev \
+        libarchive-dev \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
 
