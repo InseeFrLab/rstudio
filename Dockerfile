@@ -41,7 +41,7 @@ RUN \
     
     # Install system librairies
     && apt-get update \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends apt-utils software-properties-common\
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends apt-utils software-properties-common \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         openssh-client \
         libpng++-dev \
@@ -62,7 +62,7 @@ RUN \
     && wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add - \
     && add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/ \
     && sudo apt update -y \
-    && apt install -y adoptopenjdk-8-hotspot
+    && apt install -y adoptopenjdk-8-hotspot \
 
     # Handle localization
     && cp /usr/share/zoneinfo/Europe/Paris /etc/localtime \
