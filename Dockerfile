@@ -11,10 +11,6 @@ ARG SPARK_VERSION=2.4.6
 ENV HADOOP_HOME="/opt/hadoop"
 ENV SPARK_HOME="/opt/spark"
 
-RUN apt-get -y update && \
-    apt-get install --no-install-recommends -y openjdk-8-jre-headless ca-certificates-java && \
-    rm -rf /var/lib/apt/lists/*
-
 RUN mkdir -p $HADOOP_HOME $SPARK_HOME
 
 RUN cd /tmp \
