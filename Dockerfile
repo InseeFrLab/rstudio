@@ -41,7 +41,7 @@ RUN \
     
     # Install system librairies
     && apt-get update \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends apt-utils \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends apt-utils software-properties-common\
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         openssh-client \
 	openjdk-8-jdk \
@@ -60,6 +60,10 @@ RUN \
         libarchive-dev \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
+    && wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add - \
+    && add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/ \
+    && sudo apt update -y \
+    && apt install -y adoptopenjdk-8-hotspot
 
     # Handle localization
     && cp /usr/share/zoneinfo/Europe/Paris /etc/localtime \
