@@ -44,6 +44,7 @@ RUN \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends apt-utils \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         openssh-client \
+	openjdk-8-jdk \
         libpng++-dev \
         libudunits2-dev \
         libgdal-dev \
