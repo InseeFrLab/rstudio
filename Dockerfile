@@ -24,7 +24,7 @@ RUN cd /tmp \
     && rm -rf /tmp/*
 
 ENV SPARK_OPTS --driver-java-options=-Xms1024M --driver-java-options=-Xmx4096M --driver-java-options=-Dlog4j.logLevel=info
-ENV JAVA_HOME "/usr/lib/jvm/adoptopenjdk-8-hotspot-amd64/bin/java"
+ENV JAVA_HOME "/usr/lib/jvm/adoptopenjdk-8-hotspot-amd64"
 ENV HADOOP_OPTIONAL_TOOLS "hadoop-aws"
 ENV PATH="${JAVA_HOME}/bin:${SPARK_HOME}/bin:${HADOOP_HOME}/bin:${PATH}"
 
