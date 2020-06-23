@@ -81,6 +81,7 @@ RUN \
         odbc \
         keyring \
         aws.s3 \
+        Rglpk \
 	paws
     
     
