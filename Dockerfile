@@ -57,6 +57,7 @@ RUN \
         libsodium-dev \
         libsecret-1-dev \
         libarchive-dev \
+        libglpk-dev \        
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add - \
@@ -80,6 +81,7 @@ RUN \
         odbc \
         keyring \
         aws.s3 \
+        Rglpk \
 	paws
     
     
