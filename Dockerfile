@@ -57,6 +57,7 @@ RUN \
         libsodium-dev \
         libsecret-1-dev \
         libarchive-dev \
+        libbglpk-dev \        
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add - \
