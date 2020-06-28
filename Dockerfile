@@ -82,7 +82,8 @@ RUN \
         keyring \
         aws.s3 \
         Rglpk \
-	paws
+	    paws \
+        sparkR
     
     
 VOLUME ["/home"]
