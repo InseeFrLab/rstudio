@@ -83,7 +83,8 @@ RUN \
         aws.s3 \
         Rglpk \
 	paws \
-        SparkR
+        SparkR \
+	vaultr
     
     
 VOLUME ["/home"]
