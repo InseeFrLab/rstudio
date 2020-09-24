@@ -5,8 +5,8 @@ ARG HADOOP_SHA256="2d62709c3d7144fcaafc60e18d0fa03d7d477cc813e45526f3646030cd87d
 ARG HADOOP_URL="https://downloads.apache.org/hadoop/common/hadoop-3.2.1/"
 ARG HADOOP_VERSION=3.2.1
 ARG HADOOP_AWS_URL="https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws"
-ARG SPARK_URL="https://downloads.apache.org/spark/spark-2.4.6/"
-ARG SPARK_VERSION=2.4.6
+ARG SPARK_URL="https://downloads.apache.org/spark/spark-2.4.7/"
+ARG SPARK_VERSION=2.4.7
 
 ENV HADOOP_HOME="/opt/hadoop"
 ENV SPARK_HOME="/opt/spark"
