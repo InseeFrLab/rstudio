@@ -85,7 +85,7 @@ RUN \
 	paws \
         SparkR \
 	vaultr \
-    && R -e "remotes::install_github("inseeFrLab/doremifaso")
+    && R -e "remotes::install_github('inseeFrLab/doremifaso')"
     
     
 VOLUME ["/home"]
