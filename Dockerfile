@@ -84,7 +84,8 @@ RUN \
         Rglpk \
 	paws \
         SparkR \
-	vaultr
+	vaultr \
+    && R -e "remotes::install_github('inseeFrLab/doremifasol')"
     
     
 VOLUME ["/home"]
