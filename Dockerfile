@@ -1,4 +1,4 @@
-FROM rocker/geospatial:4.0.2
+FROM rocker/geospatial:4.0.1
 
 ARG HADOOP_MAJOR_VERSION="3.2"
 ARG HADOOP_SHA256="2d62709c3d7144fcaafc60e18d0fa03d7d477cc813e45526f3646030cd87dbf010aeccf3f4ce795b57b08d2884b3a55f91fe9d74ac144992d2dfe444a4bbf34ee"
@@ -36,9 +36,8 @@ ENV \
 
 RUN \
     # Add Shiny support
-    export ADD=shiny \
-    && bash /etc/cont-init.d/add \
-    
+    bash /rocker_scripts/install_shiny_server.sh \		
+
     # Install system librairies
     && apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends apt-utils software-properties-common \
