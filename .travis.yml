@@ -2,8 +2,6 @@ services:
   - docker
 addons:
   organization: 'inseefrlab'
-script:
-  - 
 deploy:
   - provider: script
     skip_cleanup: true
