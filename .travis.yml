@@ -2,18 +2,20 @@ services:
   - docker
 addons:
   organization: 'inseefrlab'
+script:
+  - docker build -t inseefrlab/rstudio .
 deploy:
   - provider: script
     skip_cleanup: true
     script:
-      docker build -t inseefrlab/rstudio:latest . && echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+      docker tag inseefrlab/rstudio inseefrlab/rstudio:latest && echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
       && docker push inseefrlab/rstudio:latest
     on:
       branch: master
    - provider: script
     skip_cleanup: true
     script:
-      docker build -t inseefrlab/rstudio:$TRAVIS_TAG . && echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+      docker tag inseefrlab/rstudio inseefrlab/rstudio:$TRAVIS_TAG && echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
       && docker push inseefrlab/rstudio:$TRAVIS_TAG
     on:
       tag: true    
