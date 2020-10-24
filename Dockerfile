@@ -29,7 +29,6 @@ ENV HADOOP_OPTIONAL_TOOLS "hadoop-aws"
 ENV PATH="${JAVA_HOME}/bin:${SPARK_HOME}/bin:${HADOOP_HOME}/bin:${PATH}"
 
 ENV \
-
     # Change the locale
     LANG=fr_FR.UTF-8 
 
@@ -38,7 +37,6 @@ RUN \
     # Add Shiny support
     export ADD=shiny \
     && bash /etc/cont-init.d/add \
-    
     # Install system librairies
     && apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends apt-utils software-properties-common \
@@ -64,7 +62,6 @@ RUN \
     && add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/ \
     && sudo apt update -y \
     && apt install -y adoptopenjdk-8-hotspot \
-
     # Handle localization
     && cp /usr/share/zoneinfo/Europe/Paris /etc/localtime \
     && sed -i -e 's/# fr_FR.UTF-8 UTF-8/fr_FR.UTF-8 UTF-8/' /etc/locale.gen \
@@ -73,7 +70,6 @@ RUN \
 
 
 RUN \
-    
     R -e "update.packages(ask = 'no')" \
     && install2.r --error \
         RPostgreSQL \
