@@ -49,9 +49,9 @@ RUN \
         gnupg2 \
         unixodbc \
         unixodbc-dev \
-	odbc-postgresql \
-	libsqliteodbc \
-	alien \
+        odbc-postgresql \
+        libsqliteodbc \
+        alien \
         libsodium-dev \
         libsecret-1-dev \
         libarchive-dev \
@@ -78,9 +78,9 @@ RUN \
         keyring \
         aws.s3 \
         Rglpk \
-	paws \
+        paws \
         SparkR \
-	vaultr \
+        vaultr \
     && R -e "remotes::install_github('inseeFrLab/doremifasol')"
     
     
