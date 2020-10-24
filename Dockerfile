@@ -55,7 +55,13 @@ RUN \
         libsodium-dev \
         libsecret-1-dev \
         libarchive-dev \
-        libglpk-dev \        
+        libglpk-dev \
+        chromium \
+        ghostscript \
+        fontconfig \
+        fonts-symbola \
+        fonts-noto \
+        fonts-freefont-ttf \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add - \
@@ -81,7 +87,11 @@ RUN \
         paws \
         SparkR \
         vaultr \
-    && R -e "remotes::install_github('inseeFrLab/doremifasol')"
+    # install the latest version of pagedown using a CRAN mirror instead of the MRAN snapshot
+    && install2.r --error --repos https://cran.rstudio.com pagedown \
+    && installGithub.r \
+        inseeFrLab/doremifasol \
+        spyrales/gouvdown
     
     
 VOLUME ["/home"]
