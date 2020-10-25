@@ -8,7 +8,7 @@ deploy:
   - provider: script
     skip_cleanup: true
     script:
-      docker tag inseefrlab/rstudio inseefrlab/rstudio:latest && docker push inseefrlab/rstudio:latest
+      docker push inseefrlab/rstudio:latest
     on:
       branch: master
   - provider: script
