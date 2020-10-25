@@ -18,4 +18,4 @@ deploy:
       docker tag inseefrlab/rstudio inseefrlab/rstudio:$TRAVIS_TAG && echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
       && docker push inseefrlab/rstudio:$TRAVIS_TAG
     on:
-      tag: true
+      tags: true
