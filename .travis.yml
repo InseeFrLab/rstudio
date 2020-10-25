@@ -1,7 +1,5 @@
 services:
   - docker
-addons:
-  organization: 'inseefrlab'
 script:
   - docker build -t inseefrlab/rstudio .
 deploy:
