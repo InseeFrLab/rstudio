@@ -87,11 +87,14 @@ RUN \
         paws \
         SparkR \
         vaultr \
-    # install the latest version of pagedown using a CRAN mirror instead of the MRAN snapshot
-    && install2.r --error --repos https://cran.rstudio.com pagedown \
     && installGithub.r \
         inseeFrLab/doremifasol \
-        spyrales/gouvdown
-    
+        `# pkgs for PROPRE reproducible publications:` \
+        rstudio/pagedown \
+        spyrales/gouvdown \
+        spyrales/gouvdown.fonts \
+    && find /usr/local/lib/R/site-library/gouvdown.fonts -name "*.ttf" -exec cp '{}' /usr/local/share/fonts \; \
+    && fc-cache \
+    && Rscript -e "gouvdown::check_fonts_in_r()"
     
 VOLUME ["/home"]
