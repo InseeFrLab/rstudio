@@ -46,13 +46,8 @@ ENV \
 
 RUN \
     # Add Shiny support
-<<<<<<< HEAD
     bash /rocker_scripts/install_shiny_server.sh \		
 
-=======
-    export ADD=shiny \
-    && bash /etc/cont-init.d/add \
->>>>>>> master
     # Install system librairies
     && apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends apt-utils software-properties-common \
