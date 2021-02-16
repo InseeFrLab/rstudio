@@ -67,7 +67,7 @@ RUN \
         libsecret-1-dev \
         libarchive-dev \
         libglpk-dev \
-        chromium \
+#        chromium \
         ghostscript \
         fontconfig \
         fonts-symbola \
