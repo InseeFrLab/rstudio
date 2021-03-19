@@ -99,7 +99,6 @@ RUN \
         aws.s3 \
         Rglpk \
         paws \
-        SparkR \
         vaultr \
     && installGithub.r \
         inseeFrLab/doremifasol \
