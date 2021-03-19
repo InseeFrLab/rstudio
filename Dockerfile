@@ -1,4 +1,4 @@
-FROM rocker/geospatial:4.0.1
+FROM rocker/geospatial:4.0.4
 
 ARG HADOOP_MAJOR_VERSION="3.2"
 ARG HADOOP_SHA256="2d62709c3d7144fcaafc60e18d0fa03d7d477cc813e45526f3646030cd87dbf010aeccf3f4ce795b57b08d2884b3a55f91fe9d74ac144992d2dfe444a4bbf34ee"
@@ -57,6 +57,8 @@ RUN \
         libudunits2-dev \
         libgdal-dev \
         curl \
+        jq \
+        bash-completion \
         gnupg2 \
         unixodbc \
         unixodbc-dev \
@@ -85,6 +87,7 @@ RUN \
     && dpkg-reconfigure --frontend=noninteractive locales \
     && update-locale LANG=fr_FR.UTF-8
 
+RUN kubectl completion bash >/etc/bash_completion.d/kubectl
 
 RUN \
     R -e "update.packages(ask = 'no')" \
