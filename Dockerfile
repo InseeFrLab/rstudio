@@ -32,13 +32,22 @@ ENV PATH="${JAVA_HOME}/bin:${SPARK_HOME}/bin:${HADOOP_HOME}/bin:${PATH}"
 
 RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc -O /usr/local/bin/mc && \
     chmod +x /usr/local/bin/mc
-    
+
+
 # Installing kubectl
 RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && \
     chmod +x ./kubectl && \
     mv ./kubectl /usr/local/bin/kubectl
     
-    
+# Installing vault
+
+RUN apt-get install -y unzip
+RUN cd /usr/bin && \
+    wget https://releases.hashicorp.com/vault/1.3.4/vault_1.3.4_linux_amd64.zip && \
+    unzip vault_1.3.4_linux_amd64.zip && \
+    rm vault_1.3.4_linux_amd64.zip
+RUN vault -autocomplete-install
+
 ENV \
     # Change the locale
     LANG=fr_FR.UTF-8 
