@@ -50,7 +50,9 @@ RUN vault -autocomplete-install
 
 ENV \
     # Change the locale
-    LANG=fr_FR.UTF-8 
+    LANG=fr_FR.UTF-8 \
+    # option for include s3 support in arrow package
+    LIBARROW_MINIMAL=false 
 
 
 RUN \
@@ -105,6 +107,7 @@ RUN \
         Rglpk \
         paws \
         vaultr \
+	    arrow \
     && installGithub.r \
         inseeFrLab/doremifasol \
         `# pkgs for PROPRE reproducible publications:` \
