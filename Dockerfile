@@ -21,6 +21,7 @@ RUN apt-get -y update && \
                                                jq \
                                                bash-completion \ 
                                                unzip && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p $HADOOP_HOME $SPARK_HOME $HIVE_HOME
 
