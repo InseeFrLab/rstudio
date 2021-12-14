@@ -146,3 +146,4 @@ RUN \
     && Rscript -e "gouvdown::check_fonts_in_r()"
     
 VOLUME ["/home"]
+ENTRYPOINT [ "/opt/entrypoint.sh" ]
