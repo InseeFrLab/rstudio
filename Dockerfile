@@ -140,7 +140,7 @@ RUN \
         rstudio/pagedown \
         spyrales/gouvdown \
         spyrales/gouvdown.fonts \
-    && R -e "devtools::install_github('apache/spark@v$SPARK_VERSION', subdir='R/pkg')"
+    && R -e "devtools::install_github('apache/spark@v$SPARK_VERSION', subdir='R/pkg')" \
     && find /usr/local/lib/R/site-library/gouvdown.fonts -name "*.ttf" -exec cp '{}' /usr/local/share/fonts \; \
     && fc-cache \
     && Rscript -e "gouvdown::check_fonts_in_r()"
