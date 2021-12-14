@@ -19,7 +19,8 @@ RUN apt-get -y update && \
                                                ca-certificates-java \
                                                vim \
                                                jq \
-                                               bash-completion \ 
+                                               bash-completion \
+					       tini \
                                                unzip && \
     rm -rf /var/lib/apt/lists/*
 
