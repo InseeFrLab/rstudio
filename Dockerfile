@@ -34,7 +34,7 @@ RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc -O /usr/local/bin/mc
 RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && \
     chmod +x ./kubectl && \
     mv ./kubectl /usr/local/bin/kubectl
-    
+
 # Installing vault
 
 RUN apt-get install -y unzip
@@ -79,12 +79,12 @@ ENV \
     # Change the locale
     LANG=fr_FR.UTF-8 \
     # option for include s3 support in arrow package
-    LIBARROW_MINIMAL=false 
+    LIBARROW_MINIMAL=false
 
 
 RUN \
     # Add Shiny support
-    bash /rocker_scripts/install_shiny_server.sh \		
+    bash /rocker_scripts/install_shiny_server.sh \
 
     # Install system librairies
     && apt-get update \
@@ -141,10 +141,11 @@ RUN \
         rstudio/pagedown \
         spyrales/gouvdown \
         spyrales/gouvdown.fonts \
+        koncina/unilur \
     && R -e "devtools::install_github('apache/spark@v$SPARK_VERSION', subdir='R/pkg')" \
     && find /usr/local/lib/R/site-library/gouvdown.fonts -name "*.ttf" -exec cp '{}' /usr/local/share/fonts \; \
     && fc-cache \
     && Rscript -e "gouvdown::check_fonts_in_r()"
-    
+
 VOLUME ["/home"]
 ENTRYPOINT [ "/opt/entrypoint.sh" ]
