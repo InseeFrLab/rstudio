@@ -135,6 +135,8 @@ RUN \
         paws \
         vaultr \
 	    arrow \
+        mapsf \
+        btb
     && installGithub.r \
         inseeFrLab/doremifasol \
         `# pkgs for PROPRE reproducible publications:` \
