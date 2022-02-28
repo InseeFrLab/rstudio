@@ -135,15 +135,12 @@ RUN \
         paws \
         vaultr \
 	    arrow \
-        mapsf \
-        btb \
     && installGithub.r \
         inseeFrLab/doremifasol \
         `# pkgs for PROPRE reproducible publications:` \
         rstudio/pagedown \
         spyrales/gouvdown \
         spyrales/gouvdown.fonts \
-        koncina/unilur \
     && R -e "devtools::install_github('apache/spark@v$SPARK_VERSION', subdir='R/pkg')" \
     && find /usr/local/lib/R/site-library/gouvdown.fonts -name "*.ttf" -exec cp '{}' /usr/local/share/fonts \; \
     && fc-cache \
