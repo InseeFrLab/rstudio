@@ -1,5 +1,7 @@
 FROM rocker/geospatial:4.2.0
 
+USER root
+
 ARG SPARK_VERSION=3.2.0
 ARG HADOOP_VERSION=3.3.1
 ARG HIVE_VERSION=2.3.9
@@ -13,8 +15,6 @@ ARG S3_BUCKET="https://minio.lab.sspcloud.fr/projet-onyxia/spark-build"
 ENV HADOOP_HOME="/opt/hadoop"
 ENV SPARK_HOME="/opt/spark"
 ENV HIVE_HOME="/opt/hive"
-
-USER root
 
 # Install common softwares
 RUN apt-get -y update && \ 
