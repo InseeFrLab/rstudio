@@ -14,35 +14,13 @@ ENV HADOOP_HOME="/opt/hadoop"
 ENV SPARK_HOME="/opt/spark"
 ENV HIVE_HOME="/opt/hive"
 
-RUN apt-get -y update && \
-    apt-get install --no-install-recommends -y openjdk-11-jre-headless \
-                                               ca-certificates-java \
-                                               vim \
-                                               jq \
-                                               bash-completion \
-					       tini \
-                                               unzip && \
+USER root
+
+# Install common softwares
+RUN apt-get -y update && \ 
+    curl -s https://raw.githubusercontent.com/InseeFrLab/onyxia/main/resources/common-software-docker-images.sh | bash -s && \
+    apt-get -y install tini openjdk-11-jre-headless && \
     rm -rf /var/lib/apt/lists/*
-
-# Installing mc
-
-RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc -O /usr/local/bin/mc && \
-    chmod +x /usr/local/bin/mc
-
-
-# Installing kubectl
-RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && \
-    chmod +x ./kubectl && \
-    mv ./kubectl /usr/local/bin/kubectl
-
-# Installing vault
-
-RUN apt-get install -y unzip
-RUN cd /usr/bin && \
-    wget https://releases.hashicorp.com/vault/1.3.4/vault_1.3.4_linux_amd64.zip && \
-    unzip vault_1.3.4_linux_amd64.zip && \
-    rm vault_1.3.4_linux_amd64.zip
-RUN vault -autocomplete-install
 
 RUN mkdir -p $HADOOP_HOME $SPARK_HOME $HIVE_HOME
 
