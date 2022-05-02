@@ -19,7 +19,7 @@ USER root
 # Install common softwares
 RUN apt-get -y update && \ 
     curl -s https://raw.githubusercontent.com/InseeFrLab/onyxia/main/resources/common-software-docker-images.sh | bash -s && \
-    apt-get -y install tini openjdk-11-jre-headless chromium-browser && \
+    apt-get -y install tini openjdk-11-jre-headless && \
     rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p $HADOOP_HOME $SPARK_HOME $HIVE_HOME
@@ -63,7 +63,6 @@ ENV \
 RUN \
     # Add Shiny support
     bash /rocker_scripts/install_shiny_server.sh \
-
     # Install system librairies
     && apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends apt-utils software-properties-common \
